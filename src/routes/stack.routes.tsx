@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import { Splash } from '../screens/Splash';
 import { Home } from '../screens/Home';
 import { CarDetails } from '../screens/CarDetails';
 import { Scheduling } from '../screens/Scheduling';
@@ -14,10 +15,18 @@ export function StackRoutes() {
   return (
     <Navigator
       headerMode='none'
+      initialRouteName="Splash"
     >
       <Screen
+        name="Splash"
+        component={Splash}
+      /> 
+     <Screen
         name="Home"
         component={Home}
+        options={{
+          gestureEnabled: false,
+        }}
       />
       <Screen
         name="CarDetails"

@@ -25,7 +25,7 @@ import {
 } from './styles';
 import { FlatList } from 'react-native-gesture-handler';
 import { Car } from '../../components/Car';
-import { Load } from '../../components/Load';
+import { LoadAnimation } from '../../components/LoadAnimation';
 
 interface CarProps {
   car: CarDTO;
@@ -84,7 +84,7 @@ export function MyCars() {
 
       </Header>
 
-      {loading ? <Load/> :
+      {loading ? <LoadAnimation/> :
 
         <Content>
           <Appointments>
@@ -93,7 +93,7 @@ export function MyCars() {
           </Appointments>
 
           <FlatList
-            data={cars}
+            data={cars.reverse()}
             keyExtractor={item => String(item.id)}
             showsVerticalScrollIndicator={false}
             renderItem={({item}) => (
