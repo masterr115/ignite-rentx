@@ -26,24 +26,10 @@ jobs:
           paths:
             - node_modules
 
-      - run:
-          name: jest tests
-          command: |
-            mkdir -p test-results/jest
-            yarn run test
-          environment:
-            JEST_JUNIT_OUTPUT: test-results/jest/junit.xml
-
       - persist_to_workspace:
           root: ~/demo-react-native
           paths:
             - node_modules
-
-      - store_test_results:
-          path: test-results
-
-      - store_artifacts:
-          path: test-results
 
   macos-build-and-test:
     working_directory: ~/demo-react-native
